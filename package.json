@@ -1,0 +1,15 @@
+{
+  "name": "sdk-clock-skew-repro",
+  "version": "1.0.0",
+  "description": "Repro scripts for SDK clock skew correction InvalidSignatureException bug",
+  "scripts": {
+    "repro:bad-offset": "node repro-bad-offset.js",
+    "repro:doc-client": "node repro-doc-client.js",
+    "repro:watch-offset": "node repro-watch-offset.js",
+    "repro:stale-header": "node repro-stale-header.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.906.0",
+    "@aws-sdk/lib-dynamodb": "^3.906.0"
+  }
+}
