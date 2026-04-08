@@ -24,3 +24,6 @@ gets a fresh header.
 - `repro-sustained-poison.js` - poisons one response then runs 5 more. Offset gets poisoned on the first call, self corrects on the second call.
 
 - `repro-poison-then-fail.js`- sets -6 min offset directly. DynamoDB still accepted the request (within tolerance), offset self-corrected.
+
+Based on findings, a stale Date header on a successful response poisons the offset. Locally, the next call self-corrects with a fresh header. However, on Lambda customer reports, the poisoned offset may persist and subsequent calls fail with InvalidSignatureException. 
+Action item: setup the Lambda-specific behavior or identify what causes the Date header to be stale in that environment
