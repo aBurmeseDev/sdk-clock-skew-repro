@@ -1,4 +1,4 @@
-# SDK Clock Skew Correction — InvalidSignatureException Repro
+# SDK Clock Skew Correction - InvalidSignatureException Repro
 
 Reproduction scripts for investigating `InvalidSignatureException` caused by the SDK's clock skew correction logic poisoning `systemClockOffset`.
 
@@ -13,6 +13,10 @@ npm install
 ## Scenarios and Findings
 
 Run each scenario and observe findings.
+
+```bash
+node repro-initial-offset.js 
+```
 
 - `repro-initial-offset.js` - starts with a bad offset (-30 min) to test whether the SDK corrects and retries. detects clock skew on the error response, corrects offset, retries, succeeds.
 
